@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="project">
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" data-site-name>Your Name</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="media.html">Photo / Video</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="wrap">
+      <a class="back-link" href="projects.html">← All projects</a>
+
+      <div class="project-detail-head">
+        <h1 id="pd-title"></h1>
+        <div class="title-block" id="pd-titleblock"></div>
+        <div class="tags" id="pd-tags" style="margin-top: 14px;"></div>
+      </div>
+
+      <div class="project-hero-img" id="pd-image" style="display: none;"></div>
+
+      <article class="project-body" id="pd-body"></article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span class="spec">© <span data-year></span> <span data-site-name></span></span>
+      <span class="spec">Built by hand · Hosted on GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

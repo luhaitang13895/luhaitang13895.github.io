@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="resume">
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" data-site-name>Your Name</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="resume.html" aria-current="page">Resume</a>
+        <a href="projects.html">Projects</a>
+        <a href="media.html">Photo / Video</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Resume</h2>
+        <span class="spec" id="resume-updated"></span>
+      </div>
+
+      <p style="margin-bottom: 20px;">
+        <a class="btn btn--solid" id="resume-download" href="assets/resume.pdf" download>Download PDF ↓</a>
+      </p>
+
+      <div class="resume-viewer" id="resume-viewer">
+        <div class="resume-fallback">
+          <p>Add your resume as <code>assets/resume.pdf</code> to display it here.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span class="spec">© <span data-year></span> <span data-site-name></span></span>
+      <span class="spec">Built by hand · Hosted on GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

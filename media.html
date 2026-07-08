@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo / Video — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* This page uses the dark gallery treatment full-bleed */
+    body { background: var(--gallery-bg); background-image: none; color: var(--gallery-ink); }
+  </style>
+</head>
+<body data-page="media" class="gallery-zone">
+
+  <header class="site-header" style="background: var(--gallery-bg); border-bottom-color: rgba(255,255,255,0.12);">
+    <div class="wrap">
+      <a class="brand" href="index.html" data-site-name style="color: var(--gallery-ink);">Your Name</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" style="color: var(--gallery-ink); border-color: rgba(255,255,255,0.2);">Menu</button>
+      <nav class="nav" id="nav" aria-label="Main" style="background: var(--gallery-bg);">
+        <a href="index.html" style="color: var(--gallery-soft);">Home</a>
+        <a href="about.html" style="color: var(--gallery-soft);">About</a>
+        <a href="resume.html" style="color: var(--gallery-soft);">Resume</a>
+        <a href="projects.html" style="color: var(--gallery-soft);">Projects</a>
+        <a href="media.html" aria-current="page" style="color: var(--gallery-ink);">Photo / Video</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Photography</h2>
+          <span class="spec">Click any photo to enlarge</span>
+        </div>
+        <div class="photo-grid" id="photo-grid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Video &amp; Edits</h2>
+          <span class="spec">Selected work</span>
+        </div>
+        <div class="video-grid" id="video-grid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Follow Along</h2>
+          <span class="spec">More posted regularly</span>
+        </div>
+        <div class="social-strip" id="media-socials"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" style="background: var(--gallery-bg); border-top-color: rgba(255,255,255,0.12);">
+    <div class="wrap">
+      <span class="spec">© <span data-year></span> <span data-site-name></span></span>
+      <span class="spec">Built by hand · Hosted on GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

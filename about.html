@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="about">
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" data-site-name>Your Name</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="projects.html">Projects</a>
+        <a href="media.html">Photo / Video</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>About Me</h2>
+        <span class="spec">Profile</span>
+      </div>
+
+      <div class="about-grid">
+        <div>
+          <div class="headshot-frame">
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+            <!-- Replace assets/headshot.jpg with your own photo (portrait orientation works best) -->
+            <img src="assets/headshot.jpg" alt="Headshot" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend', '<div style=&quot;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;background:#1b2127;color:#9aa3ab;font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase&quot;>Add assets/headshot.jpg</div>')" />
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <h2 data-site-name>Your Name</h2>
+          <div id="about-paragraphs"></div>
+
+          <ul class="contact-list" id="contact-list"></ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span class="spec">© <span data-year></span> <span data-site-name></span></span>
+      <span class="spec">Built by hand · Hosted on GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
