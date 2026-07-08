@@ -136,6 +136,8 @@ const VIDEOS = [
   { youtubeId: "ljz32-0UyYQ", title: "pov: the trip made it out of the group chat", description: "A quick trip to the Han River in South Korea" },
   { youtubeId: "o_Zr16wNJ7c", title: "I MET MICHAEL REEVES | and we won *third place*", description: "Sauceathon 2025 was held in Norwalk, CT, so some friends and I decided to test our luck" },
   // Vertical reel (default for Instagram, no orientation needed):
+
+  { instagramUrl: "  https://www.instagram.com/reel/DWToyQQia4d/", title: "Reel Title", description: "One line about this edit." },
   // { instagramUrl: "https://www.instagram.com/reel/YOUR_REEL_CODE/", title: "Reel Title", description: "One line about this edit." },
   // Horizontal reel (override the default):
   { instagramUrl: "https://www.instagram.com/p/DX6r72YJEUM/", orientation: "horizontal", title: "Reel Title", description: "One line about this edit." },
