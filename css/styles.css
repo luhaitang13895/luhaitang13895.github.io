@@ -259,9 +259,9 @@ a { color: inherit; }
 /* ---------- Index page ---------- */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr 320px;
   align-items: center;
-  gap: 4rem;
+  gap: 4.5rem;
 }
 
 .hero-copy {
@@ -274,30 +274,19 @@ a { color: inherit; }
 }
 
 .hero-headshot .headshot-frame {
-  width: min(360px, 100%);
+  width: 320px;
+  max-width: 100%;
 }
 
-.hero-headshot img {
+.hero-headshot .headshot-frame img {
   width: 100%;
-  height: auto;
-  display: block;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
-/* Mobile layout */
-@media (max-width: 800px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
 
-  .hero-headshot {
-    justify-content: flex-start;
-  }
-
-  .hero-headshot .headshot-frame {
-    max-width: 280px;
-  }
-}
 /* ---------- About page ---------- */
 .about-grid {
   display: grid;
