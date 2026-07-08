@@ -101,6 +101,8 @@ The honest retrospective — recruiters and fellow engineers love this section.`
    ========================================================================== */
 
 const PHOTOS = [
+  { src: "assets/photos/1.jpg", caption: "July 4th Fireworks - Orange, CT" },
+  { src: "assets/photos/2.jpg", caption: "July 4th Fireworks - Orange, CT" },
   // { src: "assets/photos/your-photo-1.jpg", caption: "Golden hour — Hartford, CT" },
   // { src: "assets/photos/your-photo-2.jpg", caption: "" },
 ];
@@ -113,5 +115,7 @@ const PHOTOS = [
    ========================================================================== */
 
 const VIDEOS = [
+  
+  { youtubeId: "https://youtu.be/4KGFHXiTRCQ?si=Y2gYwgvu9EgZ1jqg", title: "WPI 2025 Pan Asian Festival", description: "A quick vlog of the WPI 2025 Pan Asian Festival." },
   // { youtubeId: "dQw4w9WgXcQ", title: "Short Film — Title", description: "One line about this edit." },
 ];
