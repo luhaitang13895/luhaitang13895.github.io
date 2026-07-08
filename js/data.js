@@ -4,7 +4,7 @@
    ========================================================================== */
 
 const SITE = {
-  name: "Your Name",
+  name: "Luhai Tang",
   title: "Robotics Engineer",
   subtitle: "Photographer & Videographer",
   taglineHome:
@@ -17,8 +17,8 @@ const SITE = {
 
   // Contact & socials — set any value to "" to hide that row.
   contact: {
-    email: "you@example.com",
-    phone: "+1 (555) 555-5555",
+    email: "luhaitang13895@gmail.com.com",
+    phone: "+1 (475) 287-3564",
     linkedin: "https://linkedin.com/in/your-handle",
     github: "https://github.com/your-handle",
     instagram: "https://instagram.com/your-handle",
