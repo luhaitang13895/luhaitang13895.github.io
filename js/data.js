@@ -133,5 +133,6 @@ const VIDEOS = [
   // Vertical reel (default for Instagram, no orientation needed):
   // { instagramUrl: "https://www.instagram.com/reel/YOUR_REEL_CODE/", title: "Reel Title", description: "One line about this edit." },
   // Horizontal reel (override the default):
+  { instagramUrl: "https://www.instagram.com/p/DX6r72YJEUM/", orientation: "horizontal", title: "Reel Title", description: "One line about this edit." },
   // { instagramUrl: "https://www.instagram.com/reel/YOUR_REEL_CODE/", orientation: "horizontal", title: "Reel Title", description: "One line about this edit." },
 ];
