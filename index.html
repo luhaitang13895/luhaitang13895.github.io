@@ -28,30 +28,36 @@
 
   <main>
     <section class="hero">
-      <div class="wrap">
-        <div class="hero-kicker">
-          <span class="rule"></span>
-          <span class="spec spec--accent" id="hero-roles">Robotics Engineer · Photographer</span>
-        </div>
-        <!--new stuf-->
-        <div>
-          <div class="headshot-frame">
-            <span class="corner tl"></span><span class="corner tr"></span>
-            <span class="corner bl"></span><span class="corner br"></span>
-            <!-- Replace assets/headshot.jpg with your own photo (portrait orientation works best) -->
-            <img src="assets/headshot.jpg" alt="Headshot" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend', '<div style=&quot;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;background:#1b2127;color:#9aa3ab;font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase&quot;>Add assets/headshot.jpg</div>')" />
-          </div>
-        </div>
-        <!--new stuf-->
-        <h1 id="hero-name">Your Name</h1>
-        <p class="lede" id="hero-lede"></p>
-        <div class="hero-actions">
-          <a class="btn btn--solid" href="projects.html">View Projects</a>
-          <a class="btn" href="media.html">Photo / Video</a>
-          <a class="btn" href="resume.html">Resume</a>
-        </div>
+  <div class="wrap hero-grid">
+
+    <div class="hero-copy">
+      <div class="hero-kicker">
+        <span class="rule"></span>
+        <span class="spec spec--accent" id="hero-roles">
+          Robotics Engineer · Photographer
+        </span>
       </div>
-    </section>
+
+      <h1 id="hero-name">Your Name</h1>
+      <p class="lede" id="hero-lede"></p>
+
+      <div class="hero-actions">
+        <a class="btn btn--solid" href="projects.html">View Projects</a>
+        <a class="btn" href="media.html">Photo / Video</a>
+        <a class="btn" href="resume.html">Resume</a>
+      </div>
+    </div>
+
+    <div class="hero-headshot">
+      <div class="headshot-frame">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <img src="assets/headshot.jpg" alt="Headshot" />
+      </div>
+    </div>
+
+  </div>
+</section>
 
     <section class="section">
       <div class="wrap">

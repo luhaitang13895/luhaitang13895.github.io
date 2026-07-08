@@ -256,6 +256,48 @@ a { color: inherit; }
 
 .title-block .label { color: var(--ink-soft); font-size: 0.62rem; display: block; }
 
+/* ---------- Index page ---------- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hero-copy {
+  max-width: 720px;
+}
+
+.hero-headshot {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-headshot .headshot-frame {
+  width: min(360px, 100%);
+}
+
+.hero-headshot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Mobile layout */
+@media (max-width: 800px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-headshot {
+    justify-content: flex-start;
+  }
+
+  .hero-headshot .headshot-frame {
+    max-width: 280px;
+  }
+}
 /* ---------- About page ---------- */
 .about-grid {
   display: grid;
