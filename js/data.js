@@ -102,8 +102,9 @@ The honest retrospective — recruiters and fellow engineers love this section.`
 
 const PHOTOS = [
   { src: "assets/photos/3.JPG", caption: "July 4th Fireworks - Orange, CT" },
-  { src: "assets/photos/6.jpg", caption: "July 4th Fireworks - Orange, CT" },
-  { src: "assets/photos/7.jpg", caption: "July 4th Fireworks - Orange, CT" },
+  { src: "assets/photos/6.JPG", caption: "July 4th Fireworks - Orange, CT" },
+  { src: "assets/photos/7.JPG", caption: "July 4th Fireworks - Orange, CT" },
+  { src: "assets/photos/IMG_2091.jpg", caption: "Alishan - Chiayi, Taiwan" },
   // { src: "assets/photos/your-photo-1.jpg", caption: "Golden hour — Hartford, CT" },
   // { src: "assets/photos/your-photo-2.jpg", caption: "" },
 ];
@@ -118,5 +119,6 @@ const PHOTOS = [
 const VIDEOS = [
   
   { youtubeId: "4KGFHXiTRCQ", title: "WPI 2025 Pan Asian Festival", description: "A quick vlog of the WPI 2025 Pan Asian Festival." },
+  { youtubeId: "ljz32-0UyYQ", title: "pov: the trip made it out of the group chat", description: "A quick trip to the Han River in South Korea" },
   // { youtubeId: "dQw4w9WgXcQ", title: "Short Film — Title", description: "One line about this edit." },
 ];
