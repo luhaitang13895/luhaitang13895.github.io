@@ -40,6 +40,16 @@ function renderRichText(text) {
   return html;
 }
 
+// Extract a clean YouTube video ID from whatever was pasted:
+// a bare ID, an ID with extra params ("abc123&t=1s"), or a full URL.
+function youtubeIdFrom(input) {
+  const s = String(input).trim();
+  const m = s.match(/(?:youtu\.be\/|v=|shorts\/|embed\/|live\/)([A-Za-z0-9_-]{11})/);
+  if (m) return m[1];
+  const bare = s.match(/^([A-Za-z0-9_-]{11})/); // ID first, junk after
+  return bare ? bare[1] : s;
+}
+
 // ---------- shared: fill name, year, nav toggle ----------
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-site-name]").forEach((n) => (n.textContent = SITE.name));
@@ -190,6 +200,8 @@ function renderMedia() {
   if (VIDEOS.length === 0) {
     videoGrid.outerHTML = `<p class="spec">No videos yet — add YouTube video IDs or Instagram Reel links in js/data.js.</p>`;
   } else {
+    let hasInstagram = false;
+
     VIDEOS.forEach((v) => {
       const isInsta = !!v.instagramUrl;
       // Default: YouTube videos are horizontal, Instagram Reels are vertical.
@@ -201,18 +213,25 @@ function renderMedia() {
 
       let watchUrl, watchLabel;
       if (isInsta) {
-        // Normalize the reel URL: strip query params, ensure trailing slash.
+        hasInstagram = true;
+        // Normalize the link: strip query params, ensure trailing slash.
+        // Works with both /reel/... and /p/... links.
         const cleanUrl = v.instagramUrl.split("?")[0].replace(/\/*$/, "/");
         watchUrl = cleanUrl;
         watchLabel = "Open on Instagram ↗";
-        frame.innerHTML = `<iframe src="${escapeHtml(cleanUrl)}embed/" title="${escapeHtml(
-          v.title
-        )}" allow="clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen loading="lazy" scrolling="no"></iframe>`;
+        // Official Instagram embed: a blockquote that embed.js upgrades to a
+        // playable post sized to the media's real aspect ratio.
+        frame.innerHTML = `<blockquote class="instagram-media" data-instgrm-permalink="${escapeHtml(
+          cleanUrl
+        )}" data-instgrm-version="14" style="margin:0; width:100%; min-width:unset;"><a href="${escapeHtml(
+          cleanUrl
+        )}" target="_blank" rel="noopener">View this post on Instagram</a></blockquote>`;
       } else {
-        watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(v.youtubeId)}`;
+        const vid = youtubeIdFrom(v.youtubeId);
+        watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(vid)}`;
         watchLabel = "Watch on YouTube ↗";
         frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(
-          v.youtubeId
+          vid
         )}" title="${escapeHtml(
           v.title
         )}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`;
@@ -226,6 +245,8 @@ function renderMedia() {
       );
       videoGrid.appendChild(card);
     });
+
+    if (hasInstagram) loadInstagramEmbeds();
   }
 
   // social buttons
@@ -238,6 +259,20 @@ function renderMedia() {
     if (!url) return;
     strip.appendChild(el("a", { class: "btn", href: url, target: "_blank", rel: "noopener", text: `${label} ↗` }));
   });
+}
+
+// Load Instagram's official embed script (once) so blockquotes become players.
+function loadInstagramEmbeds() {
+  if (window.instgrm && window.instgrm.Embeds) {
+    window.instgrm.Embeds.process();
+    return;
+  }
+  if (document.getElementById("insta-embed-script")) return;
+  const s = document.createElement("script");
+  s.id = "insta-embed-script";
+  s.src = "https://www.instagram.com/embed.js";
+  s.async = true;
+  document.body.appendChild(s);
 }
 
 function openLightbox(src) {

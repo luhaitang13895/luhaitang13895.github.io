@@ -112,25 +112,29 @@ const PHOTOS = [
 /* ==========================================================================
    VIDEOS & EDITS — supports YouTube videos AND Instagram Reels, mixed freely.
 
-   YOUTUBE — paste the video ID (the part after "watch?v=" in the URL):
+   YOUTUBE — paste the video ID, or just the whole URL (both work now;
+   extra bits like "&t=1s" are handled automatically):
      { youtubeId: "dQw4w9WgXcQ", title: "...", description: "..." }
+     { youtubeId: "https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=1s", title: "...", description: "..." }
 
-   INSTAGRAM REEL — paste the full link to the reel (post must be public):
+   INSTAGRAM — paste the full link to the reel or post. Both
+   instagram.com/reel/... and instagram.com/p/... links work.
+   IMPORTANT: the account and post must be PUBLIC, or the embed stays blank.
      { instagramUrl: "https://www.instagram.com/reel/ABC123xyz/", title: "...", description: "..." }
 
    ORIENTATION — optional on any video:
      orientation: "horizontal"   (16:9 widescreen)
      orientation: "vertical"     (9:16 portrait)
    If you leave it out, YouTube defaults to horizontal and Instagram
-   defaults to vertical. Add it only when you want to override that —
-   e.g. a horizontal reel, or a YouTube Short.
+   defaults to vertical. Instagram embeds always show the media at its true
+   aspect ratio — orientation just controls how wide the card sits.
    ========================================================================== */
 
 const VIDEOS = [
 
   { youtubeId: "4KGFHXiTRCQ", title: "WPI 2025 Pan Asian Festival", description: "A quick vlog of the WPI 2025 Pan Asian Festival." },
   { youtubeId: "ljz32-0UyYQ", title: "pov: the trip made it out of the group chat", description: "A quick trip to the Han River in South Korea" },
-  { youtubeId: "o_Zr16wNJ7c&t=1s", title: "I MET MICHAEL REEVES | and we won *third place*", description: "Sauceathon 2025 was held in Norwalk, CT, so some friends and I decided to test our luck" },
+  { youtubeId: "o_Zr16wNJ7c", title: "I MET MICHAEL REEVES | and we won *third place*", description: "Sauceathon 2025 was held in Norwalk, CT, so some friends and I decided to test our luck" },
   // Vertical reel (default for Instagram, no orientation needed):
   // { instagramUrl: "https://www.instagram.com/reel/YOUR_REEL_CODE/", title: "Reel Title", description: "One line about this edit." },
   // Horizontal reel (override the default):

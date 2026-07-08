@@ -259,7 +259,7 @@ a { color: inherit; }
 /* ---------- Index page ---------- */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 30px;
+  grid-template-columns: 1fr 320px;
   align-items: center;
   gap: 4.5rem;
 }
@@ -506,14 +506,51 @@ a { color: inherit; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 24px;
+  align-items: start; /* mixed horizontal/vertical cards align to the top */
 }
 
 .video-card .frame {
-  aspect-ratio: 16/9;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.video-card iframe { width: 100%; height: 100%; border: none; }
+/* Orientation is set per video in js/data.js ("horizontal" or "vertical") */
+.video-card .frame--horizontal { aspect-ratio: 16 / 9; }
+
+.video-card .frame--vertical {
+  aspect-ratio: 9 / 16;
+  max-width: 320px;      /* keeps vertical reels a sensible width in the grid */
+  margin: 0 auto;
+}
+
+/* Instagram embeds size themselves to the media's real aspect ratio,
+   so no fixed aspect box — orientation just controls how wide they sit. */
+.video-card .frame--insta {
+  aspect-ratio: auto;
+  border: none;
+  background: transparent;
+}
+.video-card .frame--insta.frame--vertical { max-width: 360px; }
+.video-card .frame--insta.frame--horizontal { max-width: 540px; margin: 0 auto; }
+.video-card .frame--insta .instagram-media { min-width: unset !important; max-width: 100% !important; }
+
+.video-card .frame--horizontal iframe,
+.video-card .frame--vertical:not(.frame--insta) iframe { width: 100%; height: 100%; border: none; background: #000; }
+.video-card .frame--insta iframe { border: none; }
+
+.watch-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gallery-soft);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+.watch-link:hover { color: var(--gallery-ink); }
 
 .video-card h3 {
   font-family: var(--font-display);
