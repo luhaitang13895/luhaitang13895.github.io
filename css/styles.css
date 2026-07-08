@@ -259,7 +259,7 @@ a { color: inherit; }
 /* ---------- Index page ---------- */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 30px;
   align-items: center;
   gap: 4.5rem;
 }

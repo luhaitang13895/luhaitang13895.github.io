@@ -188,17 +188,42 @@ function renderMedia() {
 
   const videoGrid = document.getElementById("video-grid");
   if (VIDEOS.length === 0) {
-    videoGrid.outerHTML = `<p class="spec">No videos yet — add YouTube video IDs in js/data.js.</p>`;
+    videoGrid.outerHTML = `<p class="spec">No videos yet — add YouTube video IDs or Instagram Reel links in js/data.js.</p>`;
   } else {
     VIDEOS.forEach((v) => {
+      const isInsta = !!v.instagramUrl;
+      // Default: YouTube videos are horizontal, Instagram Reels are vertical.
+      // Override per-video with orientation: "horizontal" or "vertical" in data.js.
+      const orientation = v.orientation || (isInsta ? "vertical" : "horizontal");
+
       const card = el("div", { class: "video-card" });
-      const frame = el("div", { class: "frame" });
-      frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(
-        v.youtubeId
-      )}" title="${escapeHtml(v.title)}" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+      const frame = el("div", { class: `frame frame--${orientation}${isInsta ? " frame--insta" : ""}` });
+
+      let watchUrl, watchLabel;
+      if (isInsta) {
+        // Normalize the reel URL: strip query params, ensure trailing slash.
+        const cleanUrl = v.instagramUrl.split("?")[0].replace(/\/*$/, "/");
+        watchUrl = cleanUrl;
+        watchLabel = "Open on Instagram ↗";
+        frame.innerHTML = `<iframe src="${escapeHtml(cleanUrl)}embed/" title="${escapeHtml(
+          v.title
+        )}" allow="clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen loading="lazy" scrolling="no"></iframe>`;
+      } else {
+        watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(v.youtubeId)}`;
+        watchLabel = "Watch on YouTube ↗";
+        frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(
+          v.youtubeId
+        )}" title="${escapeHtml(
+          v.title
+        )}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`;
+      }
+
       card.appendChild(frame);
       card.appendChild(el("h3", { text: v.title }));
       if (v.description) card.appendChild(el("p", { text: v.description }));
+      card.appendChild(
+        el("a", { class: "watch-link", href: watchUrl, target: "_blank", rel: "noopener", text: watchLabel })
+      );
       videoGrid.appendChild(card);
     });
   }

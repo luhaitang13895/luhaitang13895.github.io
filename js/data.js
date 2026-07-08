@@ -17,7 +17,7 @@ const SITE = {
 
   // Contact & socials — set any value to "" to hide that row.
   contact: {
-    email: "luhaitang13895@gmail.com.com",
+    email: "luhaitang13895@gmail.com",
     phone: "+1 (475) 287-3564",
     linkedin: "https://linkedin.com/in/your-handle",
     github: "https://github.com/your-handle",
@@ -110,15 +110,28 @@ const PHOTOS = [
 ];
 
 /* ==========================================================================
-   VIDEOS
-   Easiest path: upload to YouTube (can be Unlisted) and paste the video ID —
-   the part after "watch?v=" in the URL. Example: for
-   https://www.youtube.com/watch?v=dQw4w9WgXcQ the id is "dQw4w9WgXcQ".
+   VIDEOS & EDITS — supports YouTube videos AND Instagram Reels, mixed freely.
+
+   YOUTUBE — paste the video ID (the part after "watch?v=" in the URL):
+     { youtubeId: "dQw4w9WgXcQ", title: "...", description: "..." }
+
+   INSTAGRAM REEL — paste the full link to the reel (post must be public):
+     { instagramUrl: "https://www.instagram.com/reel/ABC123xyz/", title: "...", description: "..." }
+
+   ORIENTATION — optional on any video:
+     orientation: "horizontal"   (16:9 widescreen)
+     orientation: "vertical"     (9:16 portrait)
+   If you leave it out, YouTube defaults to horizontal and Instagram
+   defaults to vertical. Add it only when you want to override that —
+   e.g. a horizontal reel, or a YouTube Short.
    ========================================================================== */
 
 const VIDEOS = [
-  
+
   { youtubeId: "4KGFHXiTRCQ", title: "WPI 2025 Pan Asian Festival", description: "A quick vlog of the WPI 2025 Pan Asian Festival." },
   { youtubeId: "ljz32-0UyYQ", title: "pov: the trip made it out of the group chat", description: "A quick trip to the Han River in South Korea" },
-  // { youtubeId: "dQw4w9WgXcQ", title: "Short Film — Title", description: "One line about this edit." },
+  // Vertical reel (default for Instagram, no orientation needed):
+  // { instagramUrl: "https://www.instagram.com/reel/YOUR_REEL_CODE/", title: "Reel Title", description: "One line about this edit." },
+  // Horizontal reel (override the default):
+  // { instagramUrl: "https://www.instagram.com/reel/YOUR_REEL_CODE/", orientation: "horizontal", title: "Reel Title", description: "One line about this edit." },
 ];
