@@ -112,10 +112,13 @@ const PHOTOS = [
 /* ==========================================================================
    VIDEOS & EDITS — supports YouTube videos AND Instagram Reels, mixed freely.
 
-   YOUTUBE — paste the video ID, or just the whole URL (both work now;
+   ORDER: videos appear on the page in the exact order they're listed here,
+   filling the grid left-to-right, top-to-bottom. To feature a reel first,
+   just cut its whole { ... }, block and paste it at the top of the list.
+
+   YOUTUBE — paste the video ID, or just the whole URL (both work;
    extra bits like "&t=1s" are handled automatically):
      { youtubeId: "dQw4w9WgXcQ", title: "...", description: "..." }
-     { youtubeId: "https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=1s", title: "...", description: "..." }
 
    INSTAGRAM — paste the full link to the reel or post. Both
    instagram.com/reel/... and instagram.com/p/... links work.
@@ -126,8 +129,13 @@ const PHOTOS = [
      orientation: "horizontal"   (16:9 widescreen)
      orientation: "vertical"     (9:16 portrait)
    If you leave it out, YouTube defaults to horizontal and Instagram
-   defaults to vertical. Instagram embeds always show the media at its true
-   aspect ratio — orientation just controls how wide the card sits.
+   defaults to vertical.
+
+   CROPLETTERBOX — optional, for horizontal Instagram reels only:
+     cropLetterbox: true
+   Instagram stores reels on a portrait canvas, so a horizontal reel can show
+   with big black bars baked into the embed. This crops the embed to a clean
+   16:9 window around just the video. Leave it off if your reel displays fine.
    ========================================================================== */
 
 const VIDEOS = [
@@ -136,8 +144,6 @@ const VIDEOS = [
   { youtubeId: "ljz32-0UyYQ", title: "pov: the trip made it out of the group chat", description: "A quick trip to the Han River in South Korea" },
   { youtubeId: "o_Zr16wNJ7c", title: "I MET MICHAEL REEVES | and we won *third place*", description: "Sauceathon 2025 was held in Norwalk, CT, so some friends and I decided to test our luck" },
   // Vertical reel (default for Instagram, no orientation needed):
-
-  { instagramUrl: "  https://www.instagram.com/reel/DWToyQQia4d/", title: "Reel Title", description: "One line about this edit." },
   // { instagramUrl: "https://www.instagram.com/reel/YOUR_REEL_CODE/", title: "Reel Title", description: "One line about this edit." },
   // Horizontal reel (override the default):
   { instagramUrl: "https://www.instagram.com/p/DX6r72YJEUM/", orientation: "horizontal", title: "Reel Title", description: "One line about this edit." },

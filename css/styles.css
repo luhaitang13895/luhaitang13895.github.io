@@ -533,9 +533,29 @@ a { color: inherit; }
 .video-card .frame--insta.frame--horizontal { max-width: 540px; margin: 0 auto; }
 .video-card .frame--insta .instagram-media { min-width: unset !important; max-width: 100% !important; }
 
-.video-card .frame--horizontal iframe,
+.video-card .frame--horizontal:not(.frame--insta) iframe,
 .video-card .frame--vertical:not(.frame--insta) iframe { width: 100%; height: 100%; border: none; background: #000; }
 .video-card .frame--insta iframe { border: none; }
+
+/* OPTIONAL letterbox crop for horizontal reels (cropLetterbox: true in data.js).
+   Instagram bakes reels into a 9:16 portrait canvas, so a horizontal video can
+   arrive with black bars above and below INSIDE the embed. This crops the frame
+   to 16:9 and shifts the embed up so only the video band shows. If the crop
+   lands slightly high or low on a reel, nudge the two numbers below. */
+.video-card .frame--insta.frame--crop {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+  --insta-header: 54px;      /* the embed's username header, hidden by the crop */
+  --insta-bar-shift: 108%;   /* top black bar height, as % of this frame's height */
+}
+
+.video-card .frame--insta.frame--crop .insta-crop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(-1 * var(--insta-bar-shift) - var(--insta-header));
+}
 
 .watch-link {
   display: inline-block;

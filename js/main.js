@@ -219,13 +219,16 @@ function renderMedia() {
         const cleanUrl = v.instagramUrl.split("?")[0].replace(/\/*$/, "/");
         watchUrl = cleanUrl;
         watchLabel = "Open on Instagram ↗";
+        // Optional: crop away Instagram's baked-in letterbox bars on horizontal reels.
+        if (v.cropLetterbox) frame.classList.add("frame--crop");
         // Official Instagram embed: a blockquote that embed.js upgrades to a
         // playable post sized to the media's real aspect ratio.
-        frame.innerHTML = `<blockquote class="instagram-media" data-instgrm-permalink="${escapeHtml(
+        const embedHtml = `<blockquote class="instagram-media" data-instgrm-permalink="${escapeHtml(
           cleanUrl
         )}" data-instgrm-version="14" style="margin:0; width:100%; min-width:unset;"><a href="${escapeHtml(
           cleanUrl
         )}" target="_blank" rel="noopener">View this post on Instagram</a></blockquote>`;
+        frame.innerHTML = v.cropLetterbox ? `<div class="insta-crop">${embedHtml}</div>` : embedHtml;
       } else {
         const vid = youtubeIdFrom(v.youtubeId);
         watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(vid)}`;
