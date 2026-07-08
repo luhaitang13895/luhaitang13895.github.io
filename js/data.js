@@ -101,7 +101,7 @@ The honest retrospective — recruiters and fellow engineers love this section.`
    ========================================================================== */
 
 const PHOTOS = [
-  { src: "assets/photos/3.jpg", caption: "July 4th Fireworks - Orange, CT" },
+  { src: "assets/photos/3.JPG", caption: "July 4th Fireworks - Orange, CT" },
   { src: "assets/photos/6.jpg", caption: "July 4th Fireworks - Orange, CT" },
   { src: "assets/photos/7.jpg", caption: "July 4th Fireworks - Orange, CT" },
   // { src: "assets/photos/your-photo-1.jpg", caption: "Golden hour — Hartford, CT" },
