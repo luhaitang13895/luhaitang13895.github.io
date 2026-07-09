@@ -71,6 +71,85 @@ Describe the mechanical and electrical design. What actuators, sensors, and mate
 What did it achieve? Include numbers where you can — repeatability, payload, cycle time. What would you do differently next time?`,
   },
   {
+    id: "robotic-laser-welder-integration",
+    title: "Robotic Laser Welder Integration System",
+    rev: "REV A",
+    date: "2025",
+    tags: [
+      "ABB RobotStudio",
+      "RAPID",
+      "3D Printing",
+      "SOLIDWORKS",
+      "Industrial Robotics",
+      "I/O Simulation"
+    ],
+    summary:
+      "A safe robotic laser welding test platform using an ABB GOFA cobot, a mechanically accurate 3D-printed laser welder replica, and simulated electrical I/O for collision-free path planning and operator training.",
+    image: "",
+    body: `This project focused on developing a safe and cost-effective workflow for testing, programming, and validating robotic laser welding routines without risking damage to high-value laser welding equipment. The system integrated an ABB GOFA CRB 15000 collaborative robot with a realistic 3D-printed replica of a THEO MA1-65 laser welder, allowing robotic motion, tool calibration, and weld path validation to be performed before using the real welding hardware.
+
+  The main challenge was balancing realism with safety. The dummy tool needed to behave similarly to the real welder from a mechanical and spatial perspective, while the electrical system needed to simulate real laser enable, external start, emergency stop, and weld-position feedback without energizing an actual laser. By combining mechanical design, electrical I/O simulation, and robotic path planning, the final system created a practical development platform for robotic welding demonstrations, training, and future live-laser integration.
+
+  ## Mechanical Design
+
+  I designed a SOLIDWORKS replica of the THEO MA1-65 laser welder to match the physical geometry, mounting interface, and load behavior of the real tool. The replica was 3D printed and designed to replicate mass and load distribution within ±5%, allowing the ABB GOFA cobot to perform realistic motion testing without exposing the actual laser welder to collision or handling risk.
+
+  The dummy tool was split into multiple functional sections:
+
+  - A head and handle assembly designed to match the welder profile
+  - Hollow internal sections for steel inserts to simulate realistic tool weight
+  - A simplified nozzle and wire feeder assembly
+  - A laser pointer path through the nozzle to visualize the intended weld location
+  - A two-part end-effector casing and mount for secure attachment to the robot wrist
+
+  The casing was printed using a Prusa XL, with flexible TPU incorporated at selected interfaces to improve grip, reduce stress concentration, and improve durability. The robot mounting component was resin printed for higher dimensional accuracy, minimizing play at the final robot joint and improving repeatability during testing.
+
+  ## Electrical I/O Simulation
+
+  To simulate laser welder behavior without firing a real laser, I developed and integrated an electrical I/O feedback system using the ABB DSQC1031 I/O expander. The system included LED indicators for laser enable, external start, and emergency stop states, along with a laser pointer to visually represent the weld location.
+
+  The LED system provided real-time visual feedback during operation, making it easier to debug robot routines and verify I/O behavior. The laser pointer was controlled through a solid-state relay, allowing the system to simulate the moment when the welding beam would activate. This gave operators and developers a safer way to confirm weld alignment, tool orientation, and program timing before transitioning to real hardware.
+
+  This I/O simulation improved operational efficiency by approximately 30% by making robot state changes immediately visible during testing and reducing the time needed to diagnose program or wiring issues.
+
+  ## Software & Robot Programming
+
+  The robotic welding workflow was developed in ABB RobotStudio 2025 using RAPID, AutoPath, FlexPendant operation, and collision-free path planning tools. I programmed and optimized robotic welding routines for the ABB GOFA cobot, using both manual lead-through programming and RobotStudio AutoPath generation.
+
+  Lead-through programming was used to physically guide the robot to important target locations and quickly define reference points in the workspace. AutoPath was then used to generate weld paths from selected curves, allowing faster creation of consistent robotic motion along the desired weld geometry.
+
+  Key programming and calibration tasks included:
+
+  - Tool load calibration using ABB FlexPendant procedures
+  - Tool Center Point calibration for accurate weld-tip positioning
+  - RAPID routine development for robot movement and I/O behavior
+  - AutoPath generation for linear and curved weld paths
+  - Collision geometry setup in RobotStudio
+  - Collision-free path generation with defined clearance constraints
+  - Verification of robot reachability, joint limits, and tool orientation
+
+  The optimized routines reached a 90% collision-free path success rate and reduced setup time by approximately 40% compared to manual path teaching alone.
+
+  ## Results
+
+  The final system successfully demonstrated a safe, realistic, and programmable robotic laser welding simulation platform. By using a mechanically accurate dummy tool instead of the live laser welder, the team was able to validate robot motion while protecting more than $50K in welding equipment from potential collision damage.
+
+  The project improved both safety and usability by combining realistic mechanical loading with live visual feedback from the simulated I/O system. RobotStudio programming and AutoPath-based path generation made it possible to create and test welding paths more efficiently, while collision-free path planning helped ensure safe motion through the robot workspace.
+
+  Key outcomes:
+
+  - Replicated laser welder mass and load distribution within ±5%
+  - Protected $50K+ in laser welding equipment during testing
+  - Improved operational debugging efficiency by 30% using visual I/O feedback
+  - Achieved a 90% collision-free path success rate
+  - Reduced robotic path setup time by 40% compared to manual teaching
+  - Created a scalable platform for future live laser welding integration
+
+  ## Future Improvements
+
+  Future development could include integrating the actual laser welder for live welding applications, adding Modbus communication for more advanced welder control, and implementing additional safety interlocks for production use. I would also refine the path planning workflow further to improve repeatability and reduce manual adjustment after AutoPath generation.`
+    },
+  {
     id: "example-autonomous-rover",
     title: "Autonomous Rover Platform",
     rev: "REV A",
