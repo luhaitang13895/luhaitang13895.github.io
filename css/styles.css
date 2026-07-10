@@ -676,3 +676,111 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 520px) {
   .photo-grid { columns: 1; }
 }
+
+
+
+
+/* ==========================================================================
+   PROJECT PAGE — embedded media & final report
+   Paste this whole block at the END of your existing CSS file.
+
+   NOTE: it uses var(--accent), var(--line), var(--ink) with fallback colors.
+   If your stylesheet already defines variables with different names (e.g.
+   --servo-orange), either rename them below or leave the fallbacks — they
+   only kick in if the variable doesn't exist.
+   ========================================================================== */
+
+/* ---- Embedded media inside the write-up ---- */
+
+.pd-embed {
+  margin: 32px 0;
+}
+
+/* YouTube embeds — scoped to .pd-embed--video only, so this height rule
+   can never leak into Instagram embeds elsewhere on the site. */
+.pd-embed--video {
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--line, #c9c4b6);
+}
+
+.pd-embed--video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Images — drafting-figure style with auto-numbered captions */
+#pd-body {
+  counter-reset: pd-fig;
+}
+
+.pd-embed--image {
+  counter-increment: pd-fig;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.pd-embed--image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line, #c9c4b6);
+}
+
+.pd-embed--image figcaption {
+  margin-top: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted, #6b6b5e);
+}
+
+.pd-embed--image figcaption::before {
+  content: "FIG. " counter(pd-fig) " — ";
+  color: var(--accent, #ff6a13);
+  font-weight: 600;
+}
+
+/* ---- Final report section ---- */
+
+.pd-report {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line, #c9c4b6);
+}
+
+.pd-report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+
+.pd-report-viewer object {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  border: 1px solid var(--line, #c9c4b6);
+}
+
+@media (max-width: 640px) {
+  .pd-report-viewer object {
+    height: 60vh;
+  }
+}
+
+
+.pd-report h2 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+
+.pd-report {
+  max-width: 72ch; /* match the writeup column width */
+}
