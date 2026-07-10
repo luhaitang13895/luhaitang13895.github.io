@@ -21,12 +21,61 @@ function escapeHtml(str) {
   return d.innerHTML;
 }
 
-// Render project body text: \n\n paragraphs, "## " headings, "- " bullets.
+// Render project body text: \n\n paragraphs, "## " headings, "- " bullets,
+// plus embedded media markers:
+//   !video[YOUTUBE_ID_OR_URL]              -> embedded YouTube player
+//   !image[assets/projects/x.jpg](Caption) -> figure with optional caption
+function isMediaMarker(line) {
+  return /^!(video|image)\[/.test(line.trim());
+}
+
+function renderMediaMarker(line) {
+  const t = line.trim();
+  let m = t.match(/^!video\[([^\]]+)\]$/);
+  if (m) {
+    const vid = youtubeIdFrom(m[1]);
+    return `<div class="pd-embed pd-embed--video"><iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(
+      vid
+    )}" title="Project video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>`;
+  }
+  m = t.match(/^!image\[([^\]]+)\](?:\(([^)]*)\))?$/);
+  if (m) {
+    const src = escapeHtml(m[1].trim());
+    const cap = m[2] ? escapeHtml(m[2].trim()) : "";
+    return `<figure class="pd-embed pd-embed--image"><img src="${src}" alt="${
+      cap || "Project image"
+    }" loading="lazy">${cap ? `<figcaption>${cap}</figcaption>` : ""}</figure>`;
+  }
+  return null; // not a valid marker — caller renders it as normal text
+}
+
 function renderRichText(text) {
   const blocks = text.trim().split(/\n\n+/);
   let html = "";
   for (const block of blocks) {
     const lines = block.split("\n");
+    // Media markers: render each marker line as an embed, any surrounding
+    // lines in the same block as a normal paragraph.
+    if (lines.some(isMediaMarker)) {
+      let para = [];
+      const flush = () => {
+        if (para.length) {
+          html += `<p>${escapeHtml(para.join("\n"))}</p>`;
+          para = [];
+        }
+      };
+      for (const line of lines) {
+        const media = isMediaMarker(line) ? renderMediaMarker(line) : null;
+        if (media) {
+          flush();
+          html += media;
+        } else {
+          para.push(line);
+        }
+      }
+      flush();
+      continue;
+    }
     if (lines.every((l) => l.trim().startsWith("- "))) {
       html += "<ul>" + lines.map((l) => `<li>${escapeHtml(l.trim().slice(2))}</li>`).join("") + "</ul>";
     } else if (block.trim().startsWith("## ")) {
@@ -146,7 +195,6 @@ function renderProjects() {
 
     const meta = el("div", { class: "meta" }, [
       el("span", { class: "spec", text: p.date }),
-      el("span", { class: "spec spec--accent", text: p.rev || "" }),
     ]);
     body.appendChild(meta);
 
@@ -167,8 +215,7 @@ function renderProjectDetail() {
   const tb = document.getElementById("pd-titleblock");
   tb.innerHTML = `
     <div><span class="label">Project</span>${escapeHtml(p.title)}</div>
-    <div><span class="label">Date</span>${escapeHtml(p.date)}</div>
-    <div><span class="label">Rev</span>${escapeHtml(p.rev || "—")}</div>`;
+    <div><span class="label">Date</span>${escapeHtml(p.date)}</div>`;
 
   const tags = document.getElementById("pd-tags");
   p.tags.forEach((t) => tags.appendChild(el("span", { class: "tag", text: t })));
@@ -179,7 +226,28 @@ function renderProjectDetail() {
     wrap.appendChild(el("img", { src: p.image, alt: p.title }));
   }
 
-  document.getElementById("pd-body").innerHTML = renderRichText(p.body);
+  const bodyEl = document.getElementById("pd-body");
+  bodyEl.innerHTML = renderRichText(p.body);
+
+  // Final report — shown only if the project has a reportPdf set in data.js.
+  if (p.reportPdf) {
+    const pdf = escapeHtml(p.reportPdf);
+    const report = el("section", { class: "pd-report" });
+    report.innerHTML = `
+      <h2>Final Report</h2>
+      <div class="pd-report-actions">
+        <a class="btn btn--solid" href="${pdf}" download>Download Report (PDF)</a>
+        <a class="btn" href="${pdf}" target="_blank" rel="noopener">Open in New Tab ↗</a>
+      </div>
+      <div class="pd-report-viewer">
+        <object data="${pdf}" type="application/pdf">
+          <div class="resume-fallback">
+            <p>Your browser can't display the PDF inline — use the download button above.</p>
+          </div>
+        </object>
+      </div>`;
+    bodyEl.insertAdjacentElement("afterend", report);
+  }
 }
 
 // ---------- media (photos + videos) ----------

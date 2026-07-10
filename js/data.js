@@ -37,30 +37,47 @@ const SITE = {
    and editing it. The first project in the list appears first on the page.
 
    - id:        short unique name, used in the URL (no spaces)
-   - rev:       revision/version label shown in the title block (optional flair)
    - date:      when you did the project
    - tags:      short keywords (shown as chips)
    - summary:   1–2 sentences shown on the card
    - image:     path to a thumbnail in assets/projects/ (or "" for none)
+   - reportPdf: path to the project's final report PDF, e.g.
+                "assets/projects/arm-report.pdf". Set to "" for no report.
+                When set, the project page gets a "Final Report" section at
+                the bottom with an inline viewer and a download button.
    - body:      the full write-up. Use \n\n between paragraphs.
                 Lines starting with "## " become section headings.
                 Lines starting with "- " become bullet points.
+
+   EMBEDDING MEDIA IN THE WRITE-UP — put these on their own line in body,
+   exactly where you want them to appear:
+
+     !video[dQw4w9WgXcQ]
+       Embeds a YouTube video. Paste the video ID or the whole URL —
+       both work, same as the media page.
+
+     !image[assets/projects/arm-gripper.jpg](Close-up of the gripper)
+       Embeds an image with a caption. Images are auto-numbered
+       "FIG. 1 —", "FIG. 2 —", etc. Leave the (...) off for no caption:
+     !image[assets/projects/arm-gripper.jpg]
    ========================================================================== */
 
 const PROJECTS = [
   {
     id: "example-robot-arm",
-    title: "6-DOF Robotic Arm",
-    rev: "REV C",
+    title: "3001 robot arm project",
     date: "2025",
     tags: ["ROS 2", "Inverse Kinematics", "3D Printing"],
     summary:
       "A 3D-printed six-axis manipulator with custom inverse kinematics and a ROS 2 control stack.",
     image: "",
+    reportPdf: "/Users/luhaitang/My_Website/assets/RBE_3001_Final_Paper.pdf", // e.g. "assets/projects/robot-arm-report.pdf"
     body: `Replace this with the full story of the project. Explain the goal, the constraints you were working under, and what made it interesting.
 
 ## Design
 Describe the mechanical and electrical design. What actuators, sensors, and materials did you use, and why?
+
+!image[assets/projects/your-image.jpg](Example caption — delete this line or point it at a real image)
 
 ## Software & Controls
 - Control architecture (e.g., ROS 2 nodes, real-time loop rates)
@@ -68,17 +85,19 @@ Describe the mechanical and electrical design. What actuators, sensors, and mate
 - Anything clever you're proud of
 
 ## Results
-What did it achieve? Include numbers where you can — repeatability, payload, cycle time. What would you do differently next time?`,
+What did it achieve? Include numbers where you can — repeatability, payload, cycle time. What would you do differently next time?
+
+!video[https://youtu.be/OrKT54cp0UI]`,
   },
   {
     id: "example-autonomous-rover",
     title: "Autonomous Rover Platform",
-    rev: "REV A",
     date: "2024",
     tags: ["SLAM", "Computer Vision", "Embedded"],
     summary:
       "An outdoor rover with LiDAR-based SLAM and vision-guided waypoint navigation.",
     image: "",
+    reportPdf: "",
     body: `Replace this with the project write-up.
 
 ## Overview
