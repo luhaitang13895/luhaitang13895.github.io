@@ -70,7 +70,7 @@ const PROJECTS = [
     tags: ["ROS 2", "Inverse Kinematics", "3D Printing"],
     summary:
       "A 3D-printed six-axis manipulator with custom inverse kinematics and a ROS 2 control stack.",
-    image: "",
+    image: "/Users/luhaitang/My_Website/assets/photos/card-2026-3-3-23-31-58.png",
     reportPdf: "/Users/luhaitang/My_Website/assets/RBE_3001_Final_Paper.pdf", // e.g. "assets/projects/robot-arm-report.pdf"
     body: `Replace this with the full story of the project. Explain the goal, the constraints you were working under, and what made it interesting.
 
