@@ -64,38 +64,47 @@ const SITE = {
 
 const PROJECTS = [
   {
-    id: "example-robot-arm",
-    title: "3001 robot arm project",
+    id: "4 ",
+    title: "Object Tracking Pick-and-Place Robot",
     date: "2025",
-    tags: ["ROS 2", "Inverse Kinematics", "3D Printing"],
+    tags: ["Forward and Inverse Kinematics", "Motion Planning", "Trajectory Generation"],
     summary:
-      "A 3D-printed six-axis manipulator with custom inverse kinematics and a ROS 2 control stack.",
+      "A 4 degree of freedom arm with object/color detection, tracking, and pick and place capabilities",
     image: "assets/card-2026-3-3-23-31-58.png",
     reportPdf: "assets/RBE_3001_Final_Paper.pdf", // e.g. "assets/projects/robot-arm-report.pdf"
     body: `Replace this with the full story of the project. Explain the goal, the constraints you were working under, and what made it interesting.
 
-## Design
-Describe the mechanical and electrical design. What actuators, sensors, and materials did you use, and why?
+● Designed and refined motion planning algorithms for smooth trajectory generation and velocity profiling.
+● Developed forward and inverse kinematics for a 4-DOF robotic arm in MATLAB, enabling precise end-effector control.
+● Integrated computer vision with real-time camera input to autonomously locate, identify, and accurately pick up objects.
 
-!image[assets/projects/your-image.jpg](Example caption — delete this line or point it at a real image)
-
-## Software & Controls
-- Control architecture (e.g., ROS 2 nodes, real-time loop rates)
-- Kinematics / planning approach
-- Anything clever you're proud of
-
-## Results
-What did it achieve? Include numbers where you can — repeatability, payload, cycle time. What would you do differently next time?
+!image[assets/card-2026-3-3-23-31-58.png](Example caption — delete this line or point it at a real image)
 
 !video[https://youtu.be/OrKT54cp0UI]`,
   },
   {
-    id: "example-autonomous-rover",
-    title: "Autonomous Rover Platform",
+    id: "Autonomous Robot Navigation and Mapping System",
+    title: "SLAM Robotics",
     date: "2024",
-    tags: ["SLAM", "Computer Vision", "Embedded"],
+    tags: ["SLAM", "Path Planning", "Controller"],
     summary:
       "An outdoor rover with LiDAR-based SLAM and vision-guided waypoint navigation.",
+    image: "",
+    reportPdf: "assets/RBE_3002_Final_Paper.pdf",
+    body: `Replace this with the project write-up.
+
+● Implemented SLAM with LiDAR in ROS, enabling autonomous environment mapping with > 95% positional accuracy.
+● Designed and deployed an A* path planning algorithm to generate collision-free routes, reducing navigation time to target
+waypoints by ~30% versus baseline methods.
+● Developed a pure pursuit controller that improved trajectory accuracy by 20% and enabled smooth, reliable robot motion.`,
+  },
+  {
+    id: "6",
+    title: "UAV Regulation Interface Platform",
+    date: "2026",
+    tags: ["Web Design", "Flask", "Github", "JSON"],
+    summary:
+      "An interactive website containing 100+ entries of global UAV regualtions nad tests",
     image: "",
     reportPdf: "",
     body: `Replace this with the project write-up.
