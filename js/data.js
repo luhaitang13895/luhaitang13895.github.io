@@ -8,21 +8,21 @@ const SITE = {
   title: "Robotics Engineer",
   subtitle: "Photographer & Videographer",
   taglineHome:
-    "I design, build, and program robotic systems — and when I'm away from the bench, I'm behind a camera. This site collects both.",
+    "I am so tired...",
 
   aboutParagraphs: [
-    "Replace this with your about-me paragraph. Talk about your background in robotics — what you studied, what kinds of systems you love working on (manipulators? mobile robots? controls? perception?), and what you're doing now.",
-    "Then add a line or two about photography and videography: how you got into it, what you like to shoot, and how the two disciplines feed each other.",
+    "I'm so burnt out...",
+    "I've honestly lost all drive and motivation",
   ],
 
   // Contact & socials — set any value to "" to hide that row.
   contact: {
     email: "luhaitang13895@gmail.com",
     phone: "+1 (475) 287-3564",
-    linkedin: "https://linkedin.com/in/your-handle",
-    github: "https://github.com/your-handle",
-    instagram: "https://instagram.com/your-handle",
-    youtube: "https://youtube.com/@your-handle",
+    linkedin: "kedin.com/in/luhai-tang-711657261/",
+    github: "https://github.com/luhaitang13895",
+    instagram: "https://www.instagram.com/luhai_tang/",
+    youtube: "https://www.youtube.com/@luhaitang13895",
   },
 
   // Path to your resume PDF. To update your resume, just replace this file
@@ -70,7 +70,7 @@ const PROJECTS = [
     tags: ["Forward and Inverse Kinematics", "Motion Planning", "Trajectory Generation"],
     summary:
       "A 4 degree of freedom arm with object/color detection, tracking, and pick and place capabilities",
-    image: "assets/card-2026-3-3-23-31-58.png",
+    image: "", //assets/card-2026-3-3-23-31-58.png
     reportPdf: "assets/RBE_3001_Final_Paper.pdf", // e.g. "assets/projects/robot-arm-report.pdf"
     body: `Replace this with the full story of the project. Explain the goal, the constraints you were working under, and what made it interesting.
 
@@ -173,7 +173,11 @@ const VIDEOS = [
   { youtubeId: "o_Zr16wNJ7c", title: "I MET MICHAEL REEVES | and we won *third place*", description: "Sauceathon 2025 was held in Norwalk, CT, so some friends and I decided to test our luck" },
   // Vertical reel (default for Instagram, no orientation needed):
   // { instagramUrl: "https://www.instagram.com/reel/YOUR_REEL_CODE/", title: "Reel Title", description: "One line about this edit." },
+
   // Horizontal reel (override the default):
   { instagramUrl: "https://www.instagram.com/p/DX6r72YJEUM/", orientation: "horizontal", title: "Reel Title", description: "One line about this edit." },
+  { instagramUrl: "https://www.instagram.com/p/DaQQVvhg9gm/", orientation: "horizontal", title: "Reel Title", description: "One line about this edit." },
+  
+  {instagramUrl: "https://www.instagram.com/p/DYmyGXLICzj/", title: "Reel Title", description: "One line about this edit." },
   // { instagramUrl: "https://www.instagram.com/reel/YOUR_REEL_CODE/", orientation: "horizontal", title: "Reel Title", description: "One line about this edit." },
 ];
