@@ -85,7 +85,7 @@ const PROJECTS = [
   {
     id: "Autonomous Robot Navigation and Mapping System",
     title: "SLAM Robotics",
-    date: "2024",
+    date: "2025",
     tags: ["SLAM", "Path Planning", "Controller"],
     summary:
       "An outdoor rover with LiDAR-based SLAM and vision-guided waypoint navigation.",
@@ -110,15 +110,16 @@ waypoints by ~30% versus baseline methods.
     body: `Replace this with the project write-up.
 
 ## Overview
-What problem was the rover solving, and what was the scope?
+https://etc-uav-regulation-interface.onrender.com/
+
+Above is the link to the interface that we made. The site is deployed on render, so there will be a slight delay in booting up. 
+The interface is split into card selections, to choose regions, topics, sub topics, and specifics. 
 
 ## Key Systems
-- Perception stack
-- Localization & mapping
-- Drive and power systems
-
-## Lessons Learned
-The honest retrospective — recruiters and fellow engineers love this section.`,
+Search function for specific topics
+Admin login for direct webpage editting of entries
+Simple heirarchical navigation
+`,
   },
 ];
 
@@ -175,9 +176,9 @@ const VIDEOS = [
   // { instagramUrl: "https://www.instagram.com/reel/YOUR_REEL_CODE/", title: "Reel Title", description: "One line about this edit." },
 
   // Horizontal reel (override the default):
-  { instagramUrl: "https://www.instagram.com/p/DX6r72YJEUM/", orientation: "horizontal", title: "Reel Title", description: "One line about this edit." },
-  { instagramUrl: "https://www.instagram.com/p/DaQQVvhg9gm/", orientation: "horizontal", title: "Reel Title", description: "One line about this edit." },
+  { instagramUrl: "https://www.instagram.com/p/DX6r72YJEUM/", orientation: "horizontal", title: "Reel Title", description: "A trip to Qijin Island" },
+  { instagramUrl: "https://www.instagram.com/p/DaQQVvhg9gm/", orientation: "horizontal", title: "Reel Title", description: "Life is simple, do it all with no regrets." },
   
-  {instagramUrl: "https://www.instagram.com/p/DYmyGXLICzj/", title: "Reel Title", description: "One line about this edit." },
+  
   // { instagramUrl: "https://www.instagram.com/reel/YOUR_REEL_CODE/", orientation: "horizontal", title: "Reel Title", description: "One line about this edit." },
 ];
