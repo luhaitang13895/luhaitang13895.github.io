@@ -106,7 +106,7 @@ waypoints by ~30% versus baseline methods.
     summary:
       "An interactive website containing 100+ entries of global UAV regualtions nad tests",
     image: "",
-    reportPdf: "",
+    reportPdf: "assets/Final IQP Paper Submission.pdf",
     body: `Replace this with the project write-up.
 
 ## Overview
