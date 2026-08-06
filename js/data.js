@@ -19,7 +19,7 @@ const SITE = {
   contact: {
     email: "luhaitang13895@gmail.com",
     phone: "+1 (475) 287-3564",
-    linkedin: "kedin.com/in/luhai-tang-711657261/",
+    linkedin: "https://www.linkedin.com/in/luhai-tang-711657261/",
     github: "https://github.com/luhaitang13895",
     instagram: "https://www.instagram.com/luhai_tang/",
     youtube: "https://www.youtube.com/@luhaitang13895",
