@@ -74,9 +74,9 @@ const PROJECTS = [
     reportPdf: "assets/RBE_3001_Final_Paper.pdf", // e.g. "assets/projects/robot-arm-report.pdf"
     body: `Replace this with the full story of the project. Explain the goal, the constraints you were working under, and what made it interesting.
 
--Designed and refined motion planning algorithms for smooth trajectory generation and velocity profiling.
--Developed forward and inverse kinematics for a 4-DOF robotic arm in MATLAB, enabling precise end-effector control.
--Integrated computer vision with real-time camera input to autonomously locate, identify, and accurately pick up objects.
+- Designed and refined motion planning algorithms for smooth trajectory generation and velocity profiling.
+- Developed forward and inverse kinematics for a 4-DOF robotic arm in MATLAB, enabling precise end-effector control.
+- Integrated computer vision with real-time camera input to autonomously locate, identify, and accurately pick up objects.
 
 !image[assets/card-2026-3-3-23-31-58.png](Example caption — delete this line or point it at a real image)
 
@@ -93,10 +93,10 @@ const PROJECTS = [
     reportPdf: "assets/RBE_3002_Final_Paper.pdf",
     body: `Replace this with the project write-up.
 
--Implemented SLAM with LiDAR in ROS, enabling autonomous environment mapping with > 95% positional accuracy.
--Designed and deployed an A* path planning algorithm to generate collision-free routes, reducing navigation time to target
+- Implemented SLAM with LiDAR in ROS, enabling autonomous environment mapping with > 95% positional accuracy.
+- Designed and deployed an A* path planning algorithm to generate collision-free routes, reducing navigation time to target
 waypoints by ~30% versus baseline methods.
--Developed a pure pursuit controller that improved trajectory accuracy by 20% and enabled smooth, reliable robot motion.`,
+- Developed a pure pursuit controller that improved trajectory accuracy by 20% and enabled smooth, reliable robot motion.`,
   },
   {
     id: "6",
@@ -116,9 +116,9 @@ Above is the link to the interface that we made. The site is deployed on render,
 The interface is split into card selections, to choose regions, topics, sub topics, and specifics. 
 
 ## Key Systems
--Search function for specific topics
--Admin login for direct webpage editting of entries
--Simple heirarchical navigation
+- Search function for specific topics
+- Admin login for direct webpage editting of entries
+- Simple heirarchical navigation
 `,
   },
 ];
@@ -172,7 +172,7 @@ const VIDEOS = [
   { youtubeId: "4KGFHXiTRCQ", title: "WPI 2025 Pan Asian Festival", description: "A quick vlog of the WPI 2025 Pan Asian Festival." },
   { youtubeId: "ljz32-0UyYQ", title: "pov: the trip made it out of the group chat", description: "A quick trip to the Han River in South Korea" },
   { youtubeId: "o_Zr16wNJ7c", title: "I MET MICHAEL REEVES | and we won *third place*", description: "Sauceathon 2025 was held in Norwalk, CT, so some friends and I decided to test our luck" },
-  { youtubeId: "HlhcayTgBuE", title: "Project Graduation EP2: What is your goal before you graduate?", description: "" },
+  { youtubeId: "HlhcayTgBuE", title: "Project Graduation EP2: What is your goal before you graduate?", description: "A small short film about what we want to accomplish before we graduate." },
   
   
   
