@@ -172,6 +172,10 @@ const VIDEOS = [
   { youtubeId: "4KGFHXiTRCQ", title: "WPI 2025 Pan Asian Festival", description: "A quick vlog of the WPI 2025 Pan Asian Festival." },
   { youtubeId: "ljz32-0UyYQ", title: "pov: the trip made it out of the group chat", description: "A quick trip to the Han River in South Korea" },
   { youtubeId: "o_Zr16wNJ7c", title: "I MET MICHAEL REEVES | and we won *third place*", description: "Sauceathon 2025 was held in Norwalk, CT, so some friends and I decided to test our luck" },
+  { youtubeId: "HlhcayTgBuE", title: "Project Graduation EP2: What is your goal before you graduate?", description: "" },
+  
+  
+  
   // Vertical reel (default for Instagram, no orientation needed):
   // { instagramUrl: "https://www.instagram.com/reel/YOUR_REEL_CODE/", title: "Reel Title", description: "One line about this edit." },
 
