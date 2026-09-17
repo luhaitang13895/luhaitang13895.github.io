@@ -8,11 +8,12 @@ const SITE = {
   title: "Robotics Engineer",
   subtitle: "Photographer & Videographer",
   taglineHome:
-    "I am so tired...",
+    "I'm study robotics and specialize in systems integration. I love videography as well, and creating memories.",
 
   aboutParagraphs: [
-    "I'm so burnt out...",
-    "I've honestly lost all drive and motivation",
+    "Hello! I'm Luhai Tang, an undergraduate student studying Robotic Engineering at Worcester Polytechnic Institute (WPI). I specialize in system integration, bridging hardwware and software for end-to-end completion. ",
+    "My experinece spans industrial robot programming (ABB, KUKA), autonomous navigation, and multi-platform systems.",
+    "I love videography, documenting my senior year in college, making the most of my time left and creating as many memories to look back on as possible."
   ],
 
   // Contact & socials — set any value to "" to hide that row.
@@ -27,8 +28,8 @@ const SITE = {
 
   // Path to your resume PDF. To update your resume, just replace this file
   // in the assets folder with the new version (keep the same filename).
-  resumePath: "assets/resume.pdf",
-  resumeUpdated: "2026-07", // shown on the resume page, update when you swap the file
+  resumePath: "assets/Tang_Luhai_Resume.pdf",
+  resumeUpdated: "2026-09", // shown on the resume page, update when you swap the file
 };
 
 /* ==========================================================================
@@ -78,7 +79,6 @@ const PROJECTS = [
 - Developed forward and inverse kinematics for a 4-DOF robotic arm in MATLAB, enabling precise end-effector control.
 - Integrated computer vision with real-time camera input to autonomously locate, identify, and accurately pick up objects.
 
-!image[assets/card-2026-3-3-23-31-58.png](Example caption — delete this line or point it at a real image)
 
 !video[https://youtu.be/OrKT54cp0UI]`,
   },
