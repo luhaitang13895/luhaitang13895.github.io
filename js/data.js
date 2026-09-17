@@ -98,6 +98,7 @@ const PROJECTS = [
 waypoints by ~30% versus baseline methods.
 - Developed a pure pursuit controller that improved trajectory accuracy by 20% and enabled smooth, reliable robot motion.`,
   },
+
   {
     id: "6",
     title: "UAV Regulation Interface Platform",
@@ -121,7 +122,24 @@ The interface is split into card selections, to choose regions, topics, sub topi
 - Simple heirarchical navigation
 `,
   },
+  {
+    id: "7",
+    title: "Robotic Laser Welder System Integration",
+    date: "2025-2026",
+    tags: ["System Integration", "ABB Cobot", "Laser Welder"],
+    summary:
+      "A system integration prototype of a Robotic Laser Welder industry use",
+    image: "assets/robor.png",
+    reportPdf: "assets/ABB_Laser_Welder_Integration_Project_Report.pdf",
+    body: `
+
+
+    
+!video[https://youtu.be/XXoLekXq6yU]
+`,
+  },
 ];
+
 
 /* ==========================================================================
    PHOTOGRAPHY
