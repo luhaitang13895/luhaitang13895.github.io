@@ -73,7 +73,7 @@ const PROJECTS = [
       "A 4 degree of freedom arm with object/color detection, tracking, and pick and place capabilities",
     image: "assets/photos/3001_Arm.png", //assets/card-2026-3-3-23-31-58.png
     reportPdf: "assets/RBE_3001_Final_Paper.pdf", // e.g. "assets/projects/robot-arm-report.pdf"
-    body: `Replace this with the full story of the project. Explain the goal, the constraints you were working under, and what made it interesting.
+    body: `
 
 - Designed and refined motion planning algorithms for smooth trajectory generation and velocity profiling.
 - Developed forward and inverse kinematics for a 4-DOF robotic arm in MATLAB, enabling precise end-effector control.
@@ -91,7 +91,7 @@ const PROJECTS = [
       "An outdoor rover with LiDAR-based SLAM and vision-guided waypoint navigation.",
     image: "assets/photos/Turtlebot.png",
     reportPdf: "assets/RBE_3002_Final_Paper.pdf",
-    body: `Replace this with the project write-up.
+    body: `
 
 - Implemented SLAM with LiDAR in ROS, enabling autonomous environment mapping with > 95% positional accuracy.
 - Designed and deployed an A* path planning algorithm to generate collision-free routes, reducing navigation time to target
@@ -107,7 +107,7 @@ waypoints by ~30% versus baseline methods.
       "An interactive website containing 100+ entries of global UAV regualtions nad tests",
     image: "assets/photos/ETC_Home_Page.png",
     reportPdf: "assets/Final IQP Paper Submission.pdf",
-    body: `Replace this with the project write-up.
+    body: `
 
 ## Overview
 https://etc-uav-regulation-interface.onrender.com/
