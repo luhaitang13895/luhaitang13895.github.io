@@ -21,6 +21,30 @@ function escapeHtml(str) {
   return d.innerHTML;
 }
 
+// Turn bare URLs (http://, https://, or www.) into clickable links,
+// while still safely escaping everything else.
+function linkify(text) {
+  const urlRe = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
+  let result = "";
+  let lastIndex = 0;
+  let m;
+  while ((m = urlRe.exec(text))) {
+    result += escapeHtml(text.slice(lastIndex, m.index));
+    let url = m[0];
+    // don't swallow trailing punctuation like a period or closing paren
+    let trail = "";
+    const trailMatch = url.match(/[.,;:!?)]+$/);
+    if (trailMatch) {
+      trail = trailMatch[0];
+      url = url.slice(0, -trail.length);
+    }
+    const href = url.startsWith("http") ? url : `https://${url}`;
+    result += `<a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(url)}</a>${escapeHtml(trail)}`;
+    lastIndex = urlRe.lastIndex;
+  }
+  result += escapeHtml(text.slice(lastIndex));
+  return result;
+}
 // Render project body text: \n\n paragraphs, "## " headings, "- " bullets,
 // plus embedded media markers:
 //   !video[YOUTUBE_ID_OR_URL]              -> embedded YouTube player
@@ -60,7 +84,7 @@ function renderRichText(text) {
       let para = [];
       const flush = () => {
         if (para.length) {
-          html += `<p>${escapeHtml(para.join("\n"))}</p>`;
+          html += `<p>${linkify(para.join("\n"))}</p>`;
           para = [];
         }
       };
@@ -83,7 +107,7 @@ function renderRichText(text) {
       html += `<h2>${escapeHtml(head.trim().slice(3))}</h2>`;
       if (rest.length) html += renderRichText(rest.join("\n"));
     } else {
-      html += `<p>${escapeHtml(block)}</p>`;
+      html += `<p>${linkify(block)}</p>`;
     }
   }
   return html;
